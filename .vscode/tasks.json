@@ -74,6 +74,8 @@
                 "stdio,id=serial_log,logfile=serial_log.log,signal=off",
                 "-serial",
                 "chardev:serial_log",
+                "-drive",
+                "file=${workspaceFolder}/build/rootfs.img,format=raw,if=virtio",
                 "-initrd",
                 "${workspaceFolder}/build/initrd.cpio",
                 "-smp",

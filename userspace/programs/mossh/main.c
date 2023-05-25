@@ -19,6 +19,7 @@
 const char *PATH[] = {
     "/programs",        // (currently unused)
     "/initrd/programs", // programs in the initrd
+    "/initrd/drivers",  //
     "/initrd/games",    // games in the initrd
     "/initrd/tests",    // userspace tests
     NULL,

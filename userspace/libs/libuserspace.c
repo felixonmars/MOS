@@ -60,7 +60,7 @@ void fatal_abort(const char *fmt, ...)
 {
     va_list ap;
     va_start(ap, fmt);
-    fprintf(stderr, fmt, ap);
+    vfprintf(stderr, fmt, ap);
     va_end(ap);
     exit(-1);
     while (1)

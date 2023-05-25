@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#include "dm.h"
 #include "dm/common.h"
 
 #include <librpc/rpc_server.h>
@@ -23,6 +24,12 @@ static int dm_register_device(rpc_server_t *server, rpc_args_iter_t *args, rpc_r
     driver_name = rpc_arg_next(args, NULL);
 
     printf("dm_register_device: vendor=%04x, device=%04x, location=%06x, driver_name=%s\n", vendor, device, location, driver_name);
+
+    bool started = try_start_driver(vendor, device, location, driver_name);
+    if (!started)
+        puts("dm_register_device: failed to start driver");
+    else
+        puts("dm_register_device: driver started");
 
     return result;
 }
