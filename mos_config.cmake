@@ -58,6 +58,7 @@ mos_kconfig(DEBUG       MOS_DEBUG_HAS_FUNCTION_NAME     ON                  "Inc
 mos_kconfig(DEBUG       MOS_PRINTK_WITH_FILENAME        OFF                 "Print filename in printk")
 
 mos_kconfig(KERNEL      MOS_SMP                         OFF                 "Enable Experimental SMP support")
+mos_kconfig(KERNEL      MOS_GPROF                       OFF                 "Enable gprof support")
 
 # Debugging options
 mos_debug(thread        "Thread debug log")

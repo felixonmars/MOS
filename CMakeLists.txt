@@ -63,6 +63,11 @@ target_link_options(mos_kernel_compile_options INTERFACE -nostdlib)
 target_link_libraries(mos_kernel_compile_options INTERFACE mos::include mos::private_include gcc)
 add_library(mos::kernel_compile_options ALIAS mos_kernel_compile_options)
 
+if (MOS_GPROF)
+    target_compile_options(mos_kernel_compile_options INTERFACE -pg)
+    target_link_options(mos_kernel_compile_options INTERFACE -pg)
+endif()
+
 # The Kernel
 file(GLOB_RECURSE MOS_KERNEL_SOURCES CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/kernel/*.c)
 add_library(mos_kernel OBJECT ${MOS_KERNEL_SOURCES})

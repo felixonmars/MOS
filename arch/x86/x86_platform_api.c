@@ -61,6 +61,11 @@ void platform_cpu_idle(void)
     __asm__ volatile("hlt");
 }
 
+u64 platform_get_timestamp(void)
+{
+    return rdtsc();
+}
+
 void platform_interrupt_enable(void)
 {
     __asm__ volatile("sti");
